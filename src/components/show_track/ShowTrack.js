@@ -15,7 +15,7 @@ class ShowTrack extends Component {
             <div className='ShowTrack'>
                 <Button variant="contained" color="primary" className='button-track'>
                     <Icon type="play-circle" className='icon-track' />
-                    { trackName }
+                    <span className='name-track'>{ trackName }</span>
                 </Button>
             </div>
         );
