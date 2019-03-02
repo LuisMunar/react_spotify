@@ -1,5 +1,6 @@
 // Dependencies.
 import React, { Component } from 'react';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 // Constants urls.
 import { urlUserProfile, token } from '../../constants/apiUrl';
@@ -42,25 +43,34 @@ class Home extends Component {
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             const dataUser = dataUserProfile(data);
             this.setState(dataUser);
         });
     }
+
+    uploadComponents = () => {
+        return <CircularProgress className="colorPregress" />;
+    }
+
+    returnComponents = ( profilePicture, userName, email, followers, country ) => (
+        <div className='general-container'>
+            <UserData
+                profilePicture = { profilePicture }
+                userName = { userName }
+                email = { email }
+                followers = { followers }
+                country = { country }
+            />
+            <PlayList />
+        </div>
+    )
 
     render() {
         const { profilePicture, userName, email, followers, country } = this.state;
 
         return (
             <div className='Home'>
-                <UserData
-                    profilePicture = { profilePicture }
-                    userName = { userName }
-                    email = { email }
-                    followers = { followers }
-                    country = { country }
-                />
-                <PlayList />
+                { userName === 'No name.' ? this.uploadComponents() : this.returnComponents(profilePicture, userName, email, followers, country) }
             </div>
         );
     }

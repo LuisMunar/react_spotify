@@ -1,8 +1,10 @@
 const dataPlayList = (data) => (
-    {
-        namePlayList : data.name,
-        imagePlayList : data.items
-    }
+    data.items.map( playList => (
+        {
+            namePlayList : playList.name,
+            imagePLayList : playList.images[0].url
+        }
+    ))
 )
 
 export default dataPlayList;

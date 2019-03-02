@@ -1,9 +1,12 @@
 // Dependencies.
 import React, { Component } from 'react';
-import { Drawer, Button } from 'antd';
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 // Constants urls.
 import { urlPlayList, token } from '../../constants/apiUrl';
+
+// Components.
+import UniquePlayList from '../unique_play_list';
 
 // Services.
 import dataPlayList from '../../services/dataPlayList';
@@ -15,9 +18,7 @@ class PlayList extends Component {
     constructor (){
         super();
         this.state = {
-            namePlayList : 'No name play list.',
-            imagePlayList : 'No image play list.',
-            visible: false
+            lists : []
         }
     }
 
@@ -37,43 +38,27 @@ class PlayList extends Component {
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data.items);
-            const PlayList = dataPlayList(data);
-            this.setState(PlayList);
+            const playLists = dataPlayList(data);
+            this.setState({ lists : playLists });
         });
     }
 
-    showDrawer = () => {
-        this.setState({
-            visible: true,
-        });
-    };
-    
-    onClose = () => {
-        this.setState({
-            visible: false,
-        });
-    };
+    uploadPlaylists = () => {
+        return <CircularProgress className="colorPregress" />;
+    }
+
+    returnPlaylists = (lists) => (
+        lists.map(
+            list => <UniquePlayList key={ list.namePlayList } namePlayList={ list.namePlayList } imagePlayList={ list.imagePLayList } />
+        )
+    )
 
     render() {
-        const { namePlayList, imagePlayList } = this.state;
-        
+        const { lists } = this.state;
+
         return (
             <div className='PlayList'>
-                <span className='text-h3'>{ namePlayList }</span>
-                
-                <Button onClick={this.showDrawer} className='button-image' >
-                    <img src={ imagePlayList } alt='Icon play' className='image-play-list' />
-                </Button>
-                <Drawer
-                    title={ namePlayList }
-                    placement="right"
-                    closable={false}
-                    onClose={this.onClose}
-                    visible={this.state.visible}
-                >
-                    <p>Some contents...</p>
-                </Drawer>
+                { lists.length === 0 ? this.uploadPlaylists() : this.returnPlaylists(lists) }
             </div>
         );
     }
