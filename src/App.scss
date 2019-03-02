@@ -22,3 +22,24 @@
 .colorPregress{
   color: #0099FF !important;
 }
+
+.picture-play-list{
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.subtitle-play-list{
+  margin: 20px 0 10px 0;
+  font-weight: bold;
+  color: #3C7A85;
+  display: block;
+  width: 100%;
+  text-align: left;
+}
+
+.text-play-list{
+  margin: 6px 0;
+  display: block;
+}

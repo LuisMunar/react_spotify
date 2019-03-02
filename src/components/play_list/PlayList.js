@@ -49,7 +49,7 @@ class PlayList extends Component {
 
     returnPlaylists = (lists) => (
         lists.map(
-            list => <UniquePlayList key={ list.namePlayList } namePlayList={ list.namePlayList } imagePlayList={ list.imagePLayList } />
+            list => <UniquePlayList key={ list.namePlayList } namePlayList={ list.namePlayList } imagePlayList={ list.imagePLayList } ownerPlayList={ list.ownerPlayList } idPlayList={ list.idPlayList } />
         )
     )
 
