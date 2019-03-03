@@ -3,10 +3,10 @@ import React, { Component } from 'react';
 import { Drawer, Button, Avatar } from 'antd';
 import PropTypes from 'prop-types';
 
-// Components
+// Components.
 import PlayListId from '../play_list_id';
 
-// Styles
+// Styles.
 import './UniquePlayList.scss';
 
 class UniquePlayList extends Component {

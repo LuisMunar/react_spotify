@@ -7,6 +7,7 @@ import { urlPlayList, token } from '../../constants/apiUrl';
 
 // Components.
 import UniquePlayList from '../unique_play_list';
+import EditPlayList from '../edit_play_list';
 
 // Services.
 import dataPlayList from '../../services/dataPlayList';
@@ -18,7 +19,7 @@ class PlayList extends Component {
     constructor (){
         super();
         this.state = {
-            lists : []
+            lists : [],
         }
     }
 
@@ -49,7 +50,10 @@ class PlayList extends Component {
 
     returnPlaylists = (lists) => (
         lists.map(
-            list => <UniquePlayList key={ list.namePlayList } namePlayList={ list.namePlayList } imagePlayList={ list.imagePLayList } ownerPlayList={ list.ownerPlayList } idPlayList={ list.idPlayList } />
+            list => <div key={ list.namePlayList } >
+                <EditPlayList />
+                <UniquePlayList namePlayList={ list.namePlayList } imagePlayList={ list.imagePLayList } ownerPlayList={ list.ownerPlayList } idPlayList={ list.idPlayList } />
+            </div>
         )
     )
 

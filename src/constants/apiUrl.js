@@ -1,4 +1,4 @@
-export const token = 'BQCBJbZP30J7N8ZxZxwd6gTFhC6EtlbvyCMWCD8RSFJSw1gCqfUz4iMca3U77WzEWllON0idq3FIiIUImDdd137I99yFno2gZckm34x68PMtqIlY-9uJJkeKCwBlJbiyf4g_Ylz2LFGXeHdlVGWD-n_6GRkhuCH1mhbbTG18Sp_FA2x7ew';
+export const token = 'BQDQPE8N0yOzpIW5IRIyaPjftLvGpl4kWG5H8qlj1KXQ6Qe6YjJJ6xwuBOdlq8iErOQ0F8J9m2Qi2j1coZmVjurviUULrsLHwsJ3uTBqJOHVi-RBzC72aXs7BiqQEGFyyS1mldps8VUnsySSvg_VkHJsLIe-VV91uv7Ta084Hb8fzpla-Q';
 export const urlUserProfile = 'https://api.spotify.com/v1/me';
 export const urlPlayList = 'https://api.spotify.com/v1/me/playlists';
 export const urlPlayListId = 'https://api.spotify.com/v1/playlists/';
