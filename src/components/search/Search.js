@@ -1,9 +1,16 @@
 // Dependencies.
 import React, { Component } from 'react';
-import { Drawer, Button } from 'antd';
+import { Drawer, Input } from 'antd';
+import Button from '@material-ui/core/Button';
+
+// Components.
+import ShowTrack from '../show_track';
 
 // Constants urls.
 import { urlSearch, token } from '../../constants/apiUrl';
+
+// Services.
+import searchTracks from '../../services/searchTracks';
 
 // Styles.
 import './Search.scss';
@@ -12,29 +19,31 @@ class Search extends Component {
     constructor() {
         super();
         this.state = {
-            visible: false
+            visible: false,
+            searchResult : []
         }
     }
 
-    componentDidMount() {
-        this.fetchSearch();
-    }
-
-    fetchSearch = () => {
-        const myHeaders = new Headers({
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + token
-        });
-        const contentBody = '?q=Aullando&type=track';
-
-        fetch(`${urlSearch}${contentBody}`, {
-            method : 'GET',
-            headers : myHeaders,
-        })
-        .then(response => response.json())
-        .then(data => {
-            console.log(data);
-        });
+    fetchSearch = (textSearch) => {
+        if ( textSearch === '' ) {
+            return 'Realiza tu busqueda.';
+        } else {
+            const myHeaders = new Headers({
+                'Content-Type': 'application/json',
+                'Authorization': 'Bearer ' + token
+            });
+            const contentBody = `?q=${textSearch}&type=track`;
+    
+            fetch(`${urlSearch}${contentBody}`, {
+                method : 'GET',
+                headers : myHeaders,
+            })
+            .then(response => response.json())
+            .then(data => {
+                const searchResult = searchTracks(data);
+                this.setState({ searchResult });
+            });
+        }
     }
 
     showDrawer = () => {
@@ -43,16 +52,37 @@ class Search extends Component {
         });
       };
     
-      onClose = () => {
+    onClose = () => {
         this.setState({
-          visible: false,
+            visible: false,
         });
-      };
+    };
+
+    noReaultSearch = () => (
+        'Realiza tu busqueda.'
+    )
+
+    showSearch = (searchData) => (
+        searchData.map(
+            uniqueResult => <ShowTrack
+                key={ uniqueResult.searchId }
+                trackName={ uniqueResult.searchName }
+                trackId={ uniqueResult.searchId }
+                trackUri={ uniqueResult.searchUri }
+                trackPicture={ uniqueResult.searchAlbumImage }
+                trackArtist={ uniqueResult.searchArtist }
+                trackAlbum={ uniqueResult.searchAlbum }
+            />
+        )
+    )
 
     render() {
+        const Search = Input.Search;
+        const { searchResult } = this.state;
+
         return (
             <div className='Search'>
-                <Button type="primary" onClick={this.showDrawer}>
+                <Button onClick={this.showDrawer} variant="contained" className='button-search' >
                     Buscar canciones
                 </Button>
                 <Drawer
@@ -62,7 +92,16 @@ class Search extends Component {
                     onClose={this.onClose}
                     visible={this.state.visible}
                 >
-                    <p>Some contents...</p>
+                    <Search
+                        placeholder="Busca tu cancion"
+                        onSearch={value => this.fetchSearch(value)}
+                        enterButton
+                        allowClear
+                        className='input-button-search'
+                    />
+                    <div className='content-result-search'>
+                        { searchResult.length === 0 ? this.noReaultSearch() : this.showSearch(searchResult) }
+                    </div>
                 </Drawer>
             </div>
         );

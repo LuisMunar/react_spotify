@@ -1,3 +1,13 @@
 .Search{
     text-align: center;
+
+    .button-search{
+        background: #B9B2A7;
+        color: #2F5567;
+    }
+
+    .button-search:hover{
+        background: #2F5567;
+        color: white;
+    }
 }

@@ -69,3 +69,21 @@
   align-items: center;
   justify-content: center;
 }
+
+.container-error{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.icon-error{
+  font-size: 18px;
+  border-radius: 50%;
+  color: red;
+  margin: 0 8px 0 0;
+}
+
+.content-result-search{
+  margin: 20px 0;
+}

@@ -40,7 +40,9 @@ class PlayListId extends Component {
         })
         .then(response => response.json())
         .then(data => {
+            //console.log(data);
             const tracks = tracksPlayList(data);
+            //console.log(tracks);
             this.setState({ tracks });
         });
     }
@@ -51,7 +53,7 @@ class PlayListId extends Component {
 
     showTracks = (tracks) => (
         tracks.map(
-            track => <ShowTrack key={ track.trackName } trackName={ track.trackName } trackId={ track.trackId } trackPicture={ track.trackPicture } trackArtist={ track.trackArtist } trackAlbum={ track.trackAlbum } />
+            track => <ShowTrack key={ track.trackName } trackName={ track.trackName } trackId={ track.trackId } trackUri={ track.trackUri } trackPicture={ track.trackPicture } trackArtist={ track.trackArtist } trackAlbum={ track.trackAlbum } />
         )
     )
 
