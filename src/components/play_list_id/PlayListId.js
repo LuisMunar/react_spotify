@@ -51,13 +51,12 @@ class PlayListId extends Component {
 
     showTracks = (tracks) => (
         tracks.map(
-            track => <ShowTrack key={ track.trackName } trackName={ track.trackName } />
+            track => <ShowTrack key={ track.trackName } trackName={ track.trackName } trackId={ track.trackId } trackPicture={ track.trackPicture } trackArtist={ track.trackArtist } trackAlbum={ track.trackAlbum } />
         )
     )
 
     render() {
         const { tracks } = this.state;
-        console.log(tracks);
         return (
             <div className='PlayListId'>
                 <span className='subtitle-play-list'>Pistas:</span>

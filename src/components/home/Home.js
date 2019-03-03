@@ -11,6 +11,7 @@ import dataUserProfile from '../../services/dataUserProfile';
 // Components.
 import UserData from '../user_data';
 import PlayList from '../play_list';
+import Search from '../search';
 
 // Styles.
 import './Home.scss';
@@ -62,6 +63,7 @@ class Home extends Component {
                 country = { country }
             />
             <PlayList />
+            <Search />
         </div>
     )
 
