@@ -35,7 +35,7 @@ class UniquePlayList extends Component {
         return (
             <div className='UniquePlayList'>
                 <Button onClick={this.showDrawer} className='button-image' >
-                    <span className='title-play-list'>{ namePlayList }</span>
+                    <span className='title-play-list truncate'>{ namePlayList }</span>
                     <img src={ imagePlayList } alt='Icon play' className='image-play-list' />
                 </Button>
                 <Drawer

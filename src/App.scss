@@ -121,6 +121,14 @@
   }
 }
 
+.truncate {
+  display: block;
+  width: 110px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis
+}
+
 @media(max-width: 1024px){
   .container-edit-play-list{
     .container-edit{

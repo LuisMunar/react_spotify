@@ -40,6 +40,7 @@ class Search extends Component {
             })
             .then(response => response.json())
             .then(data => {
+                console.log(data);
                 const searchResult = searchTracks(data);
                 this.setState({ searchResult });
             });
@@ -72,6 +73,7 @@ class Search extends Component {
                 trackPicture={ uniqueResult.searchAlbumImage }
                 trackArtist={ uniqueResult.searchArtist }
                 trackAlbum={ uniqueResult.searchAlbum }
+                trackPreview={ uniqueResult.searchPreview }
             />
         )
     )

@@ -6,7 +6,8 @@ const searchTracks = (data) => (
             searchUri : search.uri,
             searchArtist : search.artists[0].name,
             searchAlbum : search.album.name,
-            searchAlbumImage : search.album.images[0].url
+            searchAlbumImage : search.album.images[0].url,
+            searchPreview : search.preview_url
         }
     ))
 )

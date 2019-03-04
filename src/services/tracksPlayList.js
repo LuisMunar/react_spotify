@@ -6,7 +6,8 @@ const tracksPlayList = (data) => (
             trackUri : dataTrack.track.uri,
             trackPicture : dataTrack.track.album.images[0].url,
             trackArtist : dataTrack.track.artists[0].name,
-            trackAlbum : dataTrack.track.album.name
+            trackAlbum : dataTrack.track.album.name,
+            trackPreview : dataTrack.track.preview_url
         }
     ))
 )

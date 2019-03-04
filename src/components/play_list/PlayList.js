@@ -39,9 +39,7 @@ class PlayList extends Component {
         })
         .then(response => response.json())
         .then(data => {
-            //console.log(data);
             const playLists = dataPlayList(data);
-            //console.log(playLists);
             this.setState({ lists : playLists });
         });
     }

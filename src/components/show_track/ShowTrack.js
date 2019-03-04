@@ -41,7 +41,7 @@ class ShowTrack extends Component {
         })
         .then(response => response.json())
         .then(data => {
-            console.log(data);
+            //console.log(data);
         });
     }
 
@@ -56,16 +56,16 @@ class ShowTrack extends Component {
         </div>
     )
 
-    functionTrackPlay = (trackPlay) => (
+    functionTrackPlay = (trackPreview) => (
         <div>
-            <audio src={ trackPlay } controls autoPlay type="audio/mpeg">
+            <audio src={ trackPreview } controls autoPlay type="audio/mpeg">
             </audio>
         </div>
     )
 
     render() {
-        const { trackName, trackPicture, trackArtist, trackAlbum } = this.props;
-        const { trackPlay } = this.state;
+        const { trackName, trackPicture, trackArtist, trackAlbum, trackPreview } = this.props;
+        //const { trackPlay } = this.state;
 
         return (
             <div className='ShowTrack'>
@@ -85,7 +85,7 @@ class ShowTrack extends Component {
                     <span className='content-subtitle content-subtitle-uno'>{ trackArtist }</span>
                     <span className='content-subtitle content-subtitle-dos'>{ trackAlbum }</span>
                     <div className='container-audio'>
-                        { trackPlay === '' ? this.functionErrorTrackPlay() :  this.functionTrackPlay(trackPlay)}
+                        { trackPreview === '' ? this.functionErrorTrackPlay() :  this.functionTrackPlay(trackPreview)}
                     </div>
                 </Modal>
             </div>
@@ -99,7 +99,8 @@ ShowTrack.propTypes = {
     trackUri : PropTypes.string.isRequired,
     trackPicture : PropTypes.string.isRequired,
     trackArtist : PropTypes.string.isRequired,
-    trackAlbum : PropTypes.string.isRequired
+    trackAlbum : PropTypes.string.isRequired,
+    trackPreview : PropTypes.string.isRequired
 }
 
 export default ShowTrack;
