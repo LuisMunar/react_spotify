@@ -62,7 +62,6 @@ class Edit extends Component {
         const { idPlayList } = this.props;
         const { newNamePlayList, UpdateResponse } = this.state;
         const enabled = newNamePlayList.length > 0;
-        console.log(enabled);
 
         return (
             <div className='Edit'>

@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 
 // Components.
 import Edit from '../edit';
+import Delete from '../delete';
 
 // Styles.
 import './EditPlayList.scss';
@@ -49,10 +50,7 @@ class EditPlayList extends Component {
                             <Edit idPlayList={ idPlayList } />
                         </div>
                         <div className='container-edit'>
-                            <Button type="primary">Agregar canciones</Button>
-                        </div>
-                        <div className='container-edit'>
-                            <Button type="primary">Eliminar</Button>
+                            <Delete idPlayList={ idPlayList } />
                         </div>
                     </div>
                 </Drawer>

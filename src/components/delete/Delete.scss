@@ -1,0 +1,27 @@
+.Delete{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .text{
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', 'sans-serif';
+        font-size: 16px;
+        color: #006BB2;
+        margin: 10px 0;
+    }
+
+    .button{
+        width: 300px;
+    }
+
+    .text-success{
+        color: green;
+        margin: 10px 0;
+    }
+
+    .text-error{
+        color: red;
+        margin: 10px 0;
+    }
+}
