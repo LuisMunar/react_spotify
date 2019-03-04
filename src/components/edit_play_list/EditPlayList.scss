@@ -1,7 +1,10 @@
 .EditPlayList{
     position: relative;
     display: block;
+    height: 24px;
+    width: 24px;
     top: 54px;
+    left: 24px;
     z-index: 1;
 
     .button-edit-play-list{
@@ -16,8 +19,6 @@
         justify-content: center;
         margin: 0;
         padding: 0;
-        position: relative;
-        left: 24px;
     }
 
     .button-edit-play-list:hover{

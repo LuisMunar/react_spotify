@@ -39,7 +39,9 @@ class PlayList extends Component {
         })
         .then(response => response.json())
         .then(data => {
+            //console.log(data);
             const playLists = dataPlayList(data);
+            //console.log(playLists);
             this.setState({ lists : playLists });
         });
     }
@@ -51,8 +53,16 @@ class PlayList extends Component {
     returnPlaylists = (lists) => (
         lists.map(
             list => <div key={ list.namePlayList } >
-                <EditPlayList />
-                <UniquePlayList namePlayList={ list.namePlayList } imagePlayList={ list.imagePLayList } ownerPlayList={ list.ownerPlayList } idPlayList={ list.idPlayList } />
+                <EditPlayList
+                    namePlayList={ list.namePlayList }
+                    idPlayList={ list.idPlayList }
+                />
+                <UniquePlayList
+                    namePlayList={ list.namePlayList }
+                    imagePlayList={ list.imagePLayList }
+                    ownerPlayList={ list.ownerPlayList }
+                    idPlayList={ list.idPlayList }
+                />
             </div>
         )
     )

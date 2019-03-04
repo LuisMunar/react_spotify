@@ -1,0 +1,16 @@
+.Edit{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .text-success{
+        color: green;
+        margin: 10px 0;
+    }
+
+    .text-error{
+        color: red;
+        margin: 10px 0;
+    }
+}

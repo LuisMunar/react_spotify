@@ -15,7 +15,7 @@ class UserData extends Component {
                 <Avatar size={64} src={profilePicture} alt='Profile picture' />
                 <span className='text-h1'>{ userName }</span>
                 <span className='text-h2'>{ email }</span>
-                <span className='text-h2'>{`Seguidore ${followers}`}</span>
+                <span className='text-h2'>{`Seguidores ${followers}`}</span>
                 <span className='text-h2'>{ country }</span>
             </div>
         );

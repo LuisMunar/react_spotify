@@ -1,6 +1,10 @@
-// Components.
+// Dependencies.
 import React, { Component } from 'react';
-import { Drawer, Button } from 'antd';
+import { Drawer, Button, Icon } from 'antd';
+import PropTypes from 'prop-types';
+
+// Components.
+import Edit from '../edit';
 
 // Styles.
 import './EditPlayList.scss';
@@ -26,23 +30,40 @@ class EditPlayList extends Component {
     };
 
     render() {
+        const { namePlayList, idPlayList } = this.props;
+
         return (
             <div className='EditPlayList'>
                 <Button onClick={this.showDrawer} className='button-edit-play-list' >
-                    ...
+                    <Icon type="arrows-alt" />
                 </Button>
                 <Drawer
-                    title="Editar listas de reproducción."
+                    title={`Editar ${namePlayList}`}
                     placement="top"
                     closable={false}
                     onClose={this.onClose}
                     visible={this.state.visible}
                 >
-                    <p>Some contents...</p>
+                    <div className='container-edit-play-list'>
+                        <div className='container-edit'>
+                            <Edit idPlayList={ idPlayList } />
+                        </div>
+                        <div className='container-edit'>
+                            <Button type="primary">Agregar canciones</Button>
+                        </div>
+                        <div className='container-edit'>
+                            <Button type="primary">Eliminar</Button>
+                        </div>
+                    </div>
                 </Drawer>
             </div>
         );
     }
+}
+
+EditPlayList.propTypes = {
+    namePlayList : PropTypes.string.isRequired,
+    idPlayList : PropTypes.string.isRequired
 }
 
 export default EditPlayList;
