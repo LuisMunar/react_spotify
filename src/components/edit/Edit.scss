@@ -14,3 +14,17 @@
         margin: 10px 0;
     }
 }
+
+@media(max-width: 414px){
+    .Edit{
+        .text-success{
+            font-size: 12px;
+            line-height: 14px;
+        }
+    
+        .text-error{
+            font-size: 12px;
+            line-height: 14px;
+        }
+    }
+}

@@ -91,9 +91,10 @@
 .container-edit-play-list{
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
 
   .container-edit{
+    text-align: center;
     border-radius: 10px;
     box-shadow: 0px 0px 20px 5px rgba(0, 0, 0, 0.5);
     height: 160px;
@@ -116,7 +117,37 @@
     .button-edit{
       width: 300px;
       margin: 10px 0 0 0;
-      opacity: 6;
+    }
+  }
+}
+
+@media(max-width: 1024px){
+  .container-edit-play-list{
+    .container-edit{
+      width: 46%
+    }
+  }
+}
+
+@media(max-width: 414px){
+  .container-edit-play-list{
+    .container-edit{
+      height: 160px;
+      width: 30%;
+      width: 46%;
+  
+      .text-edit{
+        font-size: 12px;
+        line-height: 14px;
+      }
+  
+      .input-edit{
+        width: 90%;
+      }
+
+      .button-edit{
+        width: 90%;
+      }
     }
   }
 }

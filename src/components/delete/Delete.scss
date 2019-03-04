@@ -25,3 +25,28 @@
         margin: 10px 0;
     }
 }
+
+@media(max-width: 414px){
+    .Delete{
+        text-align: center;
+
+        .text{
+            font-size: 12px;
+            line-height: 14px;
+        }
+    
+        .button{
+            width: 90%;
+        }
+
+        .text-success{
+            font-size: 12px;
+            line-height: 14px;
+        }
+    
+        .text-error{
+            font-size: 12px;
+            line-height: 14px;
+        }
+    }
+}
